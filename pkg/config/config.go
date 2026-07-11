@@ -31,23 +31,23 @@ import (
 )
 
 const (
-	KeyMetricsAddr      = "metrics-bind-address"
-	KeyHealthProbeAddr  = "health-probe-bind-address"
-	KeyPprofAddr        = "pprof-addr"
-	KeyLeaderElect      = "leader-elect"
-	KeyLeaderElectionID = "leader-election-id"
-	KeyManifestsPath    = "manifests-path"
-	KeyApplicationsNS   = "applications-namespace"
-	KeyPlatformType     = "platform-type"
-	KeyPlatformVersion  = "platform-version"
+	KeyMetricsAddr         = "metrics-bind-address"
+	KeyHealthProbeAddr     = "health-probe-bind-address"
+	KeyPprofAddr           = "pprof-addr"
+	KeyLeaderElect         = "leader-elect"
+	KeyLeaderElectionID    = "leader-election-id"
+	KeyManifestsPath       = "manifests-path"
+	KeyApplicationsNS      = "applications-namespace"
+	KeyPlatformType        = "platform-type"
+	KeyPlatformVersion     = "platform-version"
 
-	DefaultMetricsAddr      = ":8080"
-	DefaultHealthProbeAddr  = ":8081"
-	DefaultLeaderElect      = true
-	DefaultLeaderElectionID = "ai-gateway-lock"
-	DefaultApplicationsNS   = "opendatahub"
-	DefaultPlatformType     = "unknown"
-	DefaultPlatformVersion  = "unknown"
+	DefaultMetricsAddr         = ":8080"
+	DefaultHealthProbeAddr     = ":8081"
+	DefaultLeaderElect         = true
+	DefaultLeaderElectionID    = "ai-gateway-lock"
+	DefaultApplicationsNS      = "opendatahub"
+	DefaultPlatformType        = "unknown"
+	DefaultPlatformVersion     = "unknown"
 
 	// ConfigPathEnvVar is the environment variable that points to the mounted
 	// ConfigMap directory (or a single config file).
