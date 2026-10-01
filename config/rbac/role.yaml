@@ -56,12 +56,6 @@ rules:
   - watch
 - apiGroups:
   - ""
-  resources:
-  - serviceaccounts/token
-  verbs:
-  - create
-- apiGroups:
-  - ""
   - events.k8s.io
   resources:
   - events
@@ -303,6 +297,12 @@ rules:
   - list
   - watch
 - apiGroups:
+  - extensions.istio.io
+  resources:
+  - wasmplugins
+  verbs:
+  - get
+- apiGroups:
   - extensions.kuadrant.io
   resources:
   - telemetrypolicies
@@ -395,6 +395,18 @@ rules:
   - patch
   - watch
 - apiGroups:
+  - llm-d.ai
+  resources:
+  - inferenceobjectives
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
   - loki.grafana.com
   resourceNames:
   - logs
@@ -467,23 +479,13 @@ rules:
   resources:
   - destinationrules
   - envoyfilters
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - networking.istio.io
-  resources:
   - serviceentries
   verbs:
   - create
   - delete
   - get
   - list
+  - patch
   - update
   - watch
 - apiGroups:

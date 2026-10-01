@@ -97,7 +97,6 @@ import (
 // MaaS RBAC escalation for manager-role — permissions granted inside vendored maascontroller ClusterRoles.
 // Required so ai-gateway-operator can create/patch those roles without RBAC escalation errors.
 // Cluster-wide rules (no resourceNames) are required for escalation; named-role rules alone are not enough.
-// +kubebuilder:rbac:groups="",resources=serviceaccounts/token,verbs=create
 // +kubebuilder:rbac:groups="",resources=endpoints;pods,verbs=get;list;watch
 // +kubebuilder:rbac:groups="",resources=namespaces,verbs=patch
 // +kubebuilder:rbac:groups=apiextensions.k8s.io,resources=customresourcedefinitions,verbs=get
@@ -112,6 +111,7 @@ import (
 // +kubebuilder:rbac:groups=config.openshift.io,resources=apiservers;authentications,verbs=get;list;watch
 // +kubebuilder:rbac:groups=coordination.k8s.io,resources=leases,verbs=create;delete;get;list;patch;update;watch
 // +kubebuilder:rbac:groups=discovery.k8s.io,resources=endpointslices,verbs=list;watch
+// +kubebuilder:rbac:groups=extensions.istio.io,resources=wasmplugins,verbs=get
 // +kubebuilder:rbac:groups=extensions.kuadrant.io,resources=telemetrypolicies,verbs=create;delete;get;list;patch;watch
 // +kubebuilder:rbac:groups=gateway.networking.k8s.io,resources=gateways,verbs=get;list;watch
 // +kubebuilder:rbac:groups=gateway.networking.k8s.io,resources=httproutes/finalizers,verbs=update
@@ -120,13 +120,14 @@ import (
 // +kubebuilder:rbac:groups=inference.opendatahub.io,resources=externalmodels/finalizers;externalproviders/finalizers,verbs=update
 // +kubebuilder:rbac:groups=kuadrant.io,resources=authpolicies;tokenratelimitpolicies,verbs=create;delete;get;list;patch;update;watch
 // +kubebuilder:rbac:groups=kuadrant.io,resources=ratelimitpolicies;telemetrypolicies,verbs=create;delete;get;list;patch;watch
+// +kubebuilder:rbac:groups=llm-d.ai,resources=inferenceobjectives,verbs=create;delete;get;list;patch;update;watch
 // +kubebuilder:rbac:groups=maas.opendatahub.io,resources=aitenants;configs;externalmodels;maasauthpolicies;maasmodelrefs;maassubscriptions;maastenantconfigs;tenants,verbs=create;delete;get;list;patch;update;watch
 // +kubebuilder:rbac:groups=maas.opendatahub.io,resources=aitenants/status;configs/status;externalmodels/status;maasauthpolicies/status;maasmodelrefs/status;maassubscriptions/status;maastenantconfigs/status;tenants/status,verbs=get;patch;update
 // +kubebuilder:rbac:groups=maas.opendatahub.io,resources=aitenants/finalizers;configs/finalizers;externalmodels/finalizers;maasauthpolicies/finalizers;maasmodelrefs/finalizers;maassubscriptions/finalizers,verbs=update
 // +kubebuilder:rbac:groups=monitoring.coreos.com,resources=podmonitors;servicemonitors,verbs=create;delete;get;list;patch;watch
 // +kubebuilder:rbac:groups=networking.istio.io,resources=destinationrules,verbs=create;delete;get;list;patch;update;watch
 // +kubebuilder:rbac:groups=networking.istio.io,resources=envoyfilters,verbs=create;delete;get;list;patch;update;watch
-// +kubebuilder:rbac:groups=networking.istio.io,resources=serviceentries,verbs=create;delete;get;list;update;watch
+// +kubebuilder:rbac:groups=networking.istio.io,resources=serviceentries,verbs=create;delete;get;list;patch;update;watch
 // +kubebuilder:rbac:groups=networking.k8s.io,resources=networkpolicies,verbs=create;delete;get;list;patch;update;watch
 // +kubebuilder:rbac:groups=opentelemetry.io,resources=opentelemetrycollectors,verbs=create;delete;get;list;patch;watch
 // +kubebuilder:rbac:groups=operator.authorino.kuadrant.io,resources=authorinos,verbs=get;list;watch
